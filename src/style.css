@@ -74,10 +74,10 @@ h3 {
   will-change: filter;
   transition: filter 300ms;
 }
- .logo:hover {
+ .logo:hover, h2:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
-li:hover,  h2:hover, h3:hover {
+li:hover, h3:hover {
   filter: drop-shadow(0 0 2em #f7df1eaa);
 }
 
@@ -125,7 +125,7 @@ ul {
 }
 
 .another {
-  padding: 12px 28px;
+  padding: 12px 21px;
   font-size: 1.1em;
   font-family: inherit;
   background: linear-gradient(135deg, #181b18 0%, #1d1515 100%);
@@ -152,8 +152,62 @@ ul {
   outline: none;
 }
 
+.plus:focus {
+  background: linear-gradient(135deg, #18a018 0%, #0a6630 100%);
+}
+
 .buffer {
   height: 90px;
 }
 
 
+
+.saved-poem {
+  margin: 15px 0;
+  padding: 15px;
+  border-top: 1px solid #444;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.saved-poem:hover {
+  box-shadow: 0 2px 15px rgba(100, 108, 255, 0.3);
+}
+
+.saved-poem button {
+  margin: 5px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 25px;
+  background: #333;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.saved-poem button:hover {
+  background: #444;
+  transform: translateY(-2px);
+}
+
+.view-poem {
+  background: linear-gradient(135deg, #505153 0%, #0e0f2b 100%) !important;
+}
+
+.remove-poem {
+  background: linear-gradient(135deg, #240d0d 0%, #5f5959 100%) !important;
+}
+
+.back-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.full-poem {
+  padding: 20px;
+}
