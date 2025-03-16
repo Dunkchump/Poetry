@@ -1,4 +1,5 @@
 import './style.css'
+import Typed from 'typed.js';
 
 const anotherBtn = document.querySelector(".next"),
       app = document.querySelector('#app'),
@@ -6,6 +7,7 @@ const anotherBtn = document.querySelector(".next"),
 
 let addedPoems = JSON.parse(localStorage.getItem('savedPoems')) || [];
 let currentPoem = null; 
+let typedInstance = null
 anotherBtn.addEventListener("click", fetchPoem)
 
 async function fetchPoem() {
@@ -40,14 +42,28 @@ async function fetchPoem() {
     }
 }
 function render(data) {
-    let html = data.lines.map(i => {
-        return `<li>${i}</li>`
-    }).join("")
     app.innerHTML = `
         <h2>${data.title}</h2>
         <h3>${data.author}</h3>
         <h4>linecount: ${data.linecount}</h4>
-        <ul>${html}</ul>`
+        <div id="typed-output"></div>`;
+    
+    const typedElement = document.querySelector('#typed-output');
+    
+
+    const poemLines = data.lines.map(line => line || ' '); 
+
+    typedInstance = new Typed(typedElement, {
+        strings: [poemLines.join('<br>')], 
+        typeSpeed: 10,
+        startDelay: 500,
+        backSpeed: 20,
+        backDelay: 1000,
+        loop: false,
+        showCursor: false,
+        cursorChar: '|',
+        
+    });
 }
 
 
